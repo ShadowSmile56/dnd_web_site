@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.surname}}!</h1>
+    <h1>Новости и объявления</h1>
+    {% for new in news %}
+    <h1>{{new.title}} </h1>
+    <div><h2>Автор: {{ new.login }}</h2>
+        <p>{{new.discription}}</p>
+        <p>{{new.datet}}</p>
+    </div>
+    {% endfor %}
+{% endblock %}

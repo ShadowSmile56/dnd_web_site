@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Добавление места проведения</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.place.label }}<br>
+            {{ form.place(min=0) }}<br>
+            {% for error in form.place.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

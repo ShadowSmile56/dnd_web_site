@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{ user.login }}</h1>
+    <p><a href="{{ url_for('addhero',login=current_user.login) }}">Добавление персонажа!</a></p>
+    <p><a href="{{ url_for('storygame',login=current_user.login) }}">История игры!</a></p>
+    <p><a href="{{ url_for('mycompany',login=current_user.login) }}">Компании в которых я состою!</a></p>
+    <hr>
+    <h2>Перонажи</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.namehero.lable }}<br>
+            {{ form.namehero(size=1) }}<br>
+            {% for error in form.namehero.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

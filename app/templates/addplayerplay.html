@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{{ url_for('editor') }}">Назад</a>
+    <h1>Добавление игрока в игру</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.login.label }}<br>
+            {{ form.login(size=1) }}<br>
+            {% for error in form.login.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.idgame.label }}<br>
+            {{ form.idgame(size=1) }}<br>
+            {% for error in form.idgame.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

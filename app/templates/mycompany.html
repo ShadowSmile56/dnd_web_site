@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for game in namegame %}
+    <h1>Название компании: {{game[0]}}</h1>
+    <h2>Мастер: {{game[1]}}</h2>
+    <h3>Описание: {{game[2]}}</h3>
+{%endfor%}
+{% endblock %}

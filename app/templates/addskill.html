@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Добавление способности</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.skill.label }}<br>
+            {{ form.skill(size=32) }}<br>
+            {% for error in form.skill.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.skilllevel.label }}<br>
+            {{ form.skilllevel(max=9, min=0) }}<br>
+            {% for error in form.skilllevel.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.discription.label }}<br>
+            {{ form.discription(cols=90, rows=30) }}<br>
+            {% for error in form.discription.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

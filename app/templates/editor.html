@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+    DndPlay Create:
+        <p><a href="{{url_for('addcompanyeditor')}}">Добавить свою компанию</a></p>
+        <p><a href="{{url_for('addbookcompany')}}">Добавить книгу в компанию</a></p>
+        <p><a href="{{url_for('addplayercompany')}}">Добавить игрока в компанию</a></p>
+        <p><a href="{{url_for('addplay')}}">Добавить игру</a></p>
+        <p><a href="{{url_for('addplayerplay')}}">Добавить игрока в прошедшую игру</a></p>
+        <p><a href="{{url_for('giveartefact')}}">Выдать артефакт</a></p>
+    </div>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.namecompany.label }}<br>
+            {{ form.namecompany(size=1) }}<br>
+            {% for error in form.namecompany.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

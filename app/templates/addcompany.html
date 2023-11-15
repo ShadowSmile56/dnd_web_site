@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Создание компании</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.namecompany.label }}<br>
+            {{ form.namecompany(size=32) }}<br>
+            {% for error in form.namecompany.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.dangeonmaster.label }}<br>
+            {{ form.dangeonmaster(size=1) }}<br>
+            {% for error in form.dangeonmaster.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>    
+        <p>
+            {{ form.discription.label }}<br>
+            {{ form.discription(cols=90, rows=30) }}<br>
+            {% for error in form.discription.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

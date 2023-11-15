@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p><a href="{{ url_for('index')}}">На главную</a></p>
+    <hr>
+    <h1>Название компании :{{namecompany}}</h1>
+    <h2>Мастер: {{dangeonmaster}}</h2>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.discription.label }}<br>
+            {{ form.discription(cols=90, rows=30)}}<br>
+            {% for error in form.discription.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <h3>Players</h3>
+    <div>
+        {% for player in players%}
+            <p>{{player[0]}}</p>
+        {%endfor%}
+    </div>
+{% endblock %}

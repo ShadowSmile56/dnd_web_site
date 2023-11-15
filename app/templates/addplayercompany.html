@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Добавление Игрока в компанию</h1>
+    <a href="{{ url_for('index') }}">Назад</a>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.player.label }}<br>
+            {{ form.player(size=1) }}<br>
+            {% for error in form.player.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.namecompany.label }}<br>
+            {{ form.namecompany(size=1) }}<br>
+            {% for error in form.namecompany.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

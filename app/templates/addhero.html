@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{{ url_for('user', login=current_user.login) }}">Назад</a>
+    <h1>Добавление персонажа</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.namehero.label }}<br>
+            {{ form.namehero(size=32) }}<br>
+            {% for error in form.namehero.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.classhero.label }}<br>
+            {{ form.classhero(size=1) }}<br>
+            {% for error in form.classhero.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>    
+        <p>
+            {{ form.herolevel.label }}<br>
+            {{ form.herolevel(max=20, min=1) }}<br>
+            {% for error in form.herolevel.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.strength.label }}<br>
+            {{ form.strength(max=24, min=1) }}<br>
+            {% for error in form.strength.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.dexterity.label }}<br>
+            {{ form.dexterity(max=24, min=1) }}<br>
+            {% for error in form.dexterity.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.physique.label }}<br>
+            {{ form.physique(max=24, min=1) }}<br>
+            {% for error in form.physique.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.intelligence.label }}<br>
+            {{ form.intelligence(max=24, min=1) }}<br>
+            {% for error in form.intelligence.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.wisdom.label }}<br>
+            {{ form.wisdom(max=24, min=1) }}<br>
+            {% for error in form.wisdom.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.charisma.label }}<br>
+            {{ form.charisma(max=24, min=1) }}<br>
+            {% for error in form.charisma.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
